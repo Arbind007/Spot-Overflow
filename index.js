@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const sensorsdata = require("../backend/models/sensordataModel");
+const sensorsdata = require("./models/sensordataModel");
 const moment = require('moment-timezone');
 require("dotenv").config();
 const app = express();
