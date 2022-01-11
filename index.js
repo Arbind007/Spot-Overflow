@@ -55,6 +55,17 @@ app.get('/getdatafrontend', (req, res) => {
     res.status(200).json({data : sensor_reading});
 })
 
+// displaying the saved data
+
+app.get("/getsavedata", async (req, res) => {
+    try {
+      const saved_data = await sensorsdata.find();
+      res.status(200).json(saved_data);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
 // auto save values(will always run)
 
 let temp;
