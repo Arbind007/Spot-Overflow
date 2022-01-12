@@ -60,7 +60,7 @@ app.get('/getdatafrontend', (req, res) => {
 app.get("/getsavedata", async (req, res) => {
     try {
       const saved_data = await sensorsdata.find();
-      res.status(200).json(saved_data);
+      res.status(200).json(saved_data.reverse());
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
