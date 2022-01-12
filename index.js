@@ -11,6 +11,17 @@ var minutes = 0.1, the_interval = minutes * 60 * 1000;
 let sensor_reading = 0;
 const PORT = process.env.PORT || 5001;
 
+//test
+
+// const dateIndia = moment.tz(Date.now(), "Asia/Kolkata");
+// var date = dateIndia.toString();
+// let x = date.indexOf('GMT');    //parsing
+// date = date.substring(0, x).trim(); 
+// let time = date.substring(15,24).trim();
+// date = date.substring(0, 15).trim(); 
+// console.log(date);
+// console.log(time);
+
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING,
     {
@@ -64,7 +75,55 @@ app.get("/getsavedata", async (req, res) => {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
-  });
+});
+
+// query with date
+
+app.get("/getsavedatequery",async  (req, res) => {
+  try {
+    let body = [];
+    let vardate;
+      req.on("data", (chunk) => {
+         body.push(chunk);
+      });
+      req.on("end",async () => {
+        let joinedwords = Buffer.concat(body);
+        let jsontext = JSON.parse(joinedwords);
+        // console.log(jsontext.data);
+        vardate = await Promise.resolve(jsontext.date);
+        // console.log(vardate);
+        const saved_data = await sensorsdata.find({date: new RegExp(vardate,'i')});
+        res.status(200).json(saved_data.reverse());
+      });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// query with date && time
+
+app.get("/getsavedatetimequery",async  (req, res) => {
+  try {
+    let body = [];
+    let vardate,vartime;
+      req.on("data", (chunk) => {
+         body.push(chunk);
+      });
+      req.on("end",async () => {
+        let joinedwords = Buffer.concat(body);
+        let jsontext = JSON.parse(joinedwords);
+        // console.log(jsontext.data);
+        vardate = await Promise.resolve(jsontext.date);
+        vartime = await Promise.resolve(jsontext.time);
+        // console.log(vardate);
+        const saved_data = await sensorsdata.find({$and : [ {date: new RegExp(vardate,'i')},{time: new RegExp(vartime,'i')}]});
+        res.status(200).json(saved_data.reverse());
+      });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 // auto save values(will always run)
 
@@ -75,10 +134,14 @@ var autoadddata = function() {
     var date = dateIndia.toString();
     let x = date.indexOf('GMT');    //parsing
     date = date.substring(0, x).trim(); 
+    let time = date.substring(15,24).trim();
+    date = date.substring(0, 15).trim(); 
+    // console.log(date);
+    // console.log(time); 
     if(sensor_reading != 0){
     // console.log(the_interval);
     try{
-        const newSensorData = new sensorsdata({sensor_reading,date});
+        const newSensorData = new sensorsdata({sensor_reading,date,time});
         newSensorData.save();
     }
     catch (err) {
