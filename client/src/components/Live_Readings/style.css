@@ -1,0 +1,7 @@
+.react-terminal-wrapper {
+    height: 50vh !important;
+    overflow-y: scroll !important;
+}
+.container {
+    margin-top: 5%;
+}
