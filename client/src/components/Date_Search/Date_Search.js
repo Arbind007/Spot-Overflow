@@ -31,7 +31,7 @@ export default function Live_Readings() {
     return (
         <div>
             <div class="row">
-                <form class="col s12">
+                <form class="col s10">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">search</i>
@@ -44,8 +44,10 @@ export default function Live_Readings() {
                             <label for="icon_prefix">Date</label>
                         </div>
                     </div>
-                    <button onClick={(e) => handleClick(e)}>Search</button>
                 </form>
+                <div class="col s2">
+                    <button onClick={(e) => handleClick(e)}>Search</button>
+                </div>
             </div>
             <div>
                 <table

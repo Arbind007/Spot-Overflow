@@ -1,5 +1,5 @@
-import React from "react";
-
+import React from "react"
+import { Link } from "react-router-dom"
 export default function card() {
     return (
         <div>
@@ -8,60 +8,57 @@ export default function card() {
                     <div class="card small">
                         <div class="card-image">
                             <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" />
-                            <span class="card-title">Card Title</span>
+                            <span class="card-title">Live Readings</span>
                         </div>
                         <div class="card-content">
                             <p>
-                                I am a very simple card. I am good at containing
-                                small bits of information. I am convenient
-                                because I require little markup to use
-                                effectively.
+                                This Page of the website displays the Live
+                                readings fetched directly from our sensors.
                             </p>
                         </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+                        <Link to="/live">
+                            <div class="card-action">Check Readings</div>
+                        </Link>
                     </div>
                 </div>
                 <div class="col m4">
                     <div class="card small">
                         <div class="card-image">
                             <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" />
-                            <span class="card-title">Card Title</span>
+                            <span class="card-title">Search with Date</span>
                         </div>
                         <div class="card-content">
                             <p>
-                                I am a very simple card. I am good at containing
-                                small bits of information. I am convenient
-                                because I require little markup to use
-                                effectively.
+                                This Section of the website gives user the
+                                ability to get sensor readings as per date.
                             </p>
                         </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+                        <Link to="/only_date">
+                            <div class="card-action">Check Readings</div>
+                        </Link>
                     </div>
                 </div>
                 <div class="col m4">
                     <div class="card small">
                         <div class="card-image">
                             <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" />
-                            <span class="card-title">Card Title</span>
+                            <span class="card-title">
+                                Search with Date and Time
+                            </span>
                         </div>
                         <div class="card-content">
                             <p>
-                                I am a very simple card. I am good at containing
-                                small bits of information. I am convenient
-                                because I require little markup to use
-                                effectively.
+                                This Section of the website gives user the
+                                ability to get sensor readings as per both date
+                                and time.
                             </p>
                         </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+                        <Link to="/date_and_time">
+                            <div class="card-action">Check Readings</div>
+                        </Link>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }
