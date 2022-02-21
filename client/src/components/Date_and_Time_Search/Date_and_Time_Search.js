@@ -43,19 +43,19 @@ export default function Live_Readings() {
 
                     <tbody>
                         <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
+                            <td>Wed Jan 12 2022 </td>
+                            <td>18:21:33 </td>
+                            <td>30</td>
                         </tr>
                         <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
+                            <td>Wed Jan 12 2022 </td>
+                            <td>09:49:20 </td>
+                            <td>36.6</td>
                         </tr>
                         <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
+                            <td>Wed Jan 12 2021</td>
+                            <td>09:49:45</td>
+                            <td>78.00</td>
                         </tr>
                     </tbody>
                 </table>

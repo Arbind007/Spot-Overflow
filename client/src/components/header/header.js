@@ -1,23 +1,25 @@
 import React from "react"
+import { Link } from "react-router-dom"
+
 export default function header() {
     return (
         <div>
             <nav style={{ backgroundColor: "#51B5DF" }}>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo right">
+                    <Link to="/" class="brand-logo right">
                         SpotOverflow
-                    </a>
+                    </Link>
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <li>
-                            <a href="sass.html">Live Readings</a>
+                            <Link to="/live">Live Readings</Link>
                         </li>
                         <li>
-                            <a href="badges.html">Search with Date</a>
+                            <Link to="/only_date">Search with Date</Link>
                         </li>
                         <li>
-                            <a href="collapsible.html">
+                            <Link to="/date_and_time">
                                 Search with Date and Time
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
