@@ -14,7 +14,7 @@ export default function Live_Readings() {
                                 type="text"
                                 class="validate"
                             />
-                            <label for="icon_prefix">First Name</label>
+                            <label for="icon_prefix">Date</label>
                         </div>
                     </div>
                 </form>
@@ -26,9 +26,9 @@ export default function Live_Readings() {
                 >
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Item Name</th>
-                            <th>Item Price</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Sensor Reading</th>
                         </tr>
                     </thead>
 

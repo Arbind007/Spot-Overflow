@@ -14,7 +14,7 @@ export default function Live_Readings() {
                                 type="text"
                                 class="validate"
                             />
-                            <label for="icon_prefix">First Name</label>
+                            <label for="icon_prefix">Date</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">access_time</i>
@@ -23,7 +23,7 @@ export default function Live_Readings() {
                                 type="tel"
                                 class="validate"
                             />
-                            <label for="icon_telephone">Telephone</label>
+                            <label for="icon_telephone">Time</label>
                         </div>
                     </div>
                 </form>
@@ -35,9 +35,9 @@ export default function Live_Readings() {
                 >
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Item Name</th>
-                            <th>Item Price</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Sensor Reading</th>
                         </tr>
                     </thead>
 

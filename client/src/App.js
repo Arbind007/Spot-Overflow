@@ -10,11 +10,11 @@ import Date_and_Time_Search from "./components/Date_and_Time_Search/Date_and_Tim
 function App() {
     const { data, setdata } = useState()
     useEffect(() => {
-        // axios
-        //     .get("https://spotoverflow.herokuapp.com/getdatafrontend")
-        //     .then((res) => {
-        //         console.log(res.data);
-        //     });
+        axios
+            .get("https://spotoverflow.herokuapp.com/getdatafrontend")
+            .then((res) => {
+                // console.log(res.data);
+            });
         // axios
         //     .get("https://spotoverflow.herokuapp.com/getsavedata")
         //     .then((res) => {

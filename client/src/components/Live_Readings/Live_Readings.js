@@ -1,43 +1,21 @@
 import React, { useEffect, useState } from "react"
 import Terminal, { ColorMode, LineType } from "react-terminal-ui"
+import axios from "axios"
 import "./style.css"
 export default function Live_Readings() {
-    const [terminalLineData, setTerminalLineData] = useState([
-        {
-            type: LineType.Output,
-            value: "Below are the Live Readings of the Sensor!"
-        },
-        { type: LineType.Output, value: "Some previous input received" },
-        {
-            type: LineType.Output,
-            value: "water Level is at : 12 meters above sea-level as of 03:05 PM"
-        },
-        {
-            type: LineType.Output,
-            value: "water Level is at : 152 meters above sea-level as of 08:05 PM"
-        },
-        {
-            type: LineType.Output,
-            value: "water Level is at : 1152 meters above sea-level as of 12:05 AM"
-        },
-        {
-            type: LineType.Output,
-            value: "water Level is at : 1247 meters above sea-level as of 11:05 PM"
-        }
-    ])
+    let [value, setdata] = React.useState('')
+    useEffect(() => {
+        axios
+            .get("https://spotoverflow.herokuapp.com/getdatafrontend")
+            .then((res) => {
+                console.log(res.data.data);
+                setdata(res.data)
+            });
+    }, [])
     return (
         <div>
-            <div className="container">
-                <Terminal
-                    name="Live Readings of the Sensor"
-                    colorMode={ColorMode.Dark}
-                    lineData={terminalLineData}
-                    onOutput={(terminalInput) =>
-                        console.log(
-                            `New terminal input received: '${terminalInput}'`
-                        )
-                    }
-                />
+            <div className="container center" style ={{ marginTop: '150px',marginBottom: '92.5px' }}>
+                <h1 className="display-1" style={{'font-family': "'Brush Script MT', cursive", "fontSize":'100px'}}> {value.data} </h1>
             </div>
         </div>
     )
