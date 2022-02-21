@@ -1,7 +1,33 @@
 import React, { useEffect, useState } from "react"
-import Terminal, { ColorMode, LineType } from "react-terminal-ui"
 import "./style.css"
+import axios from "axios"
+
 export default function Live_Readings() {
+    const [data, setdata] = useState([{}])
+    const [date, setdate] = useState("")
+    // useEffect(() => {
+    //     var data = {}
+    //     data.date = date
+    //     axios
+    //         .post("https://spotoverflow.herokuapp.com/getsavedatequery", data)
+    //         .then((res) => {
+    //             // console.log(res.data)
+    //             setdata(res.data)
+    //             // console.log(data)
+    //         })
+    // })
+    function handleClick(e) {
+        e.preventDefault()
+        var data = {}
+        data.date = date
+        axios
+            .post("https://spotoverflow.herokuapp.com/getsavedatequery", data)
+            .then((res) => {
+                // console.log(res.data)
+                setdata(res.data)
+                // console.log(data)
+            })
+    }
     return (
         <div>
             <div class="row">
@@ -13,10 +39,12 @@ export default function Live_Readings() {
                                 id="icon_prefix"
                                 type="text"
                                 class="validate"
+                                onChange={(e) => setdate(e.target.value)}
                             />
                             <label for="icon_prefix">Date</label>
                         </div>
                     </div>
+                    <button onClick={(e) => handleClick(e)}>Search</button>
                 </form>
             </div>
             <div>
@@ -33,21 +61,13 @@ export default function Live_Readings() {
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                        </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                        </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                        </tr>
+                        {data.map((post) => (
+                            <tr className="">
+                                <th scope="row">{post.date}</th>
+                                <th scope="row">{post.time}</th>
+                                <th scope="row">{post.sensor_reading}</th>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

@@ -10,53 +10,26 @@ import Date_and_Time_Search from "./components/Date_and_Time_Search/Date_and_Tim
 function App() {
     const { data, setdata } = useState()
     useEffect(() => {
-        axios
-            .get("https://spotoverflow.herokuapp.com/getdatafrontend")
-            .then((res) => {
-                // console.log(res.data);
-            });
+        // var data = {}
+        // data.date = "2021"
+        // axios
+        //     .post("http://localhost:5001/getsavedatequery", data)
+        //     .then((res) => {
+        //         console.log(res.data)
+        //     })
+        // axios
+        // .get("https://spotoverflow.herokuapp.com/getdatafrontend")
+        // .then((res) => {
+        //     // console.log(res.data);
+        // });
         // axios
         //     .get("https://spotoverflow.herokuapp.com/getsavedata")
         //     .then((res) => {
         //         console.log(res.data);
         //     });
-        // axios
-        //     .get("https://spotoverflow.herokuapp.com/getsavedata")
-        //     .then((res) => {
-        //         console.log(res.data);
-        //     });
-
-        axios({
-            method: "get",
-            url: "http://localhost:5001/getsavedatetimequery",
-            params: {
-                "date": "12 2022",
-                "time": "09"
-            }
-        }).then((res) => console.log(res.data))
     }, [])
 
     return (
-        // // <Router>
-        // //     <Switch>
-        // //         <Route path="/abc">
-        // <div className="App">
-        //     <Header />
-        //     {/* <Card /> */}
-        //     {/* <Live_Readings /> */}
-        //     {/* <Date_Search /> */}
-        //     <Date_and_Time_Search />
-        //     {/* <img src={logo} /> */}
-        // </div>
-        // // </Route>
-        // /* <Route path="/">
-        //         <div className="App">
-        //             <Header />
-        //         </div>
-        //     </Route> */
-        // //     </Switch>
-        // // </Router>
-
         <Router>
             <Switch>
                 <Route exact path="/">
