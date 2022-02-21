@@ -79,7 +79,7 @@ app.get("/getsavedata", async (req, res) => {
 
 // query with date
 
-app.get("/getsavedatequery",async  (req, res) => {
+app.post("/getsavedatequery",async  (req, res) => {
   try {
     let body = [];
     let vardate;
@@ -102,7 +102,7 @@ app.get("/getsavedatequery",async  (req, res) => {
 
 // query with date && time
 
-app.get("/getsavedatetimequery",async  (req, res) => {
+app.post("/getsavedatetimequery",async  (req, res) => {
   try {
     let body = [];
     let vardate,vartime;
