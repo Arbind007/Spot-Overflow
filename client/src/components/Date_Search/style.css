@@ -2,13 +2,13 @@ th {
     text-align: center;
 }
 .row button {
-    padding: 21%;
+    padding: 7%;
     background-color: #51b5df;
     color: white;
     outline: 0;
-    margin-left: 122%;
+    margin-left: 11%;
     border: 0;
     border-radius: 7px;
     cursor: pointer;
-    margin-top: 62%;
+    margin-top: 15%;
 }
